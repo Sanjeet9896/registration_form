@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        body{
+            background:linear-gradient(135deg, #567eea, #8840cb);
+            display:flex;
+            justify-content:center;
+        }
+        .container{
+            display:flex;
+            flex-direction:column;
+            height:90vh;
+            width:500px;
+            background-color:white;
+            margin:20px;
+            border-radius:10px;
+            box-shadow:5px 5px 5px rgba(40, 40, 40);
+        }
+        header{
+            text-align:center;
+            height:10vh;
+            color:white;
+            background:linear-gradient(to right, #1E3A8A, #9333EA);
+            width:96%;
+            padding:5px;
+            margin:5px;
+            border-radius:5px;
+        }
+        .main-form{
+            display:flex;
+            align-items:center;
+            flex-direction:column;
+            height:90vh;
+            margin:4vh 0 0 0;
+            gap:15px;
+        }
+        input{
+            width:80%;
+            height:4vh;
+            padding:7px;
+            background-color:rgb(223, 223, 223);
+            border:1px solid black;
+        }
+        .btn{
+            display:flex;
+            width:80%;
+            margin:0px;
+            justify-content:space-between;
+            color:white;
+        }
+        #reset{
+            padding:5px 22px 5px 22px;
+            cursor:pointer;
+            border-radius: 5px;
+            background-color: #dc3545;
+            color:white;
+        }
+        #submit{
+            padding:5px 22px 5px 22px;
+            background-color: #099657;
+            color:white;
+            cursor:pointer;
+            border-radius: 5px;
+        }
+        #submit :hover{
+            background-color:#36e697;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Registration Form</h1>
+            <p>Create your account. It's free and easy!</p>
+        </header>
+        <form class="main-form" id="registrationForm">
+            <input type="text" name="fullname" placeholder="🙎 Enter your Name" required>
+            <input type="email" name="email" placeholder="📧 Enter your Email" required>
+            <input type="tel" id="adhNo" name="Aadhaar No" placeholder="🔢 Enter your Aadhaar Number" maxlength="12" pattern="[0-9]{12}" required>
+
+            <input type="tel" id="mobNo" name="Mobile No" placeholder="📞Enter your mobile No." maxlength="10" pattern="[0-9]{10}" required>
+
+            <input type="date" id="dob" name="dob" placeholder="📆 Enter your Date Of Birth" required>
+
+            <input type="text" id="username" name="username" placeholder="🆔 Create user name own" pattern="(?=.*[a-zA-Z0-9]).+" required>
+
+            <input type="password" id="pass" name="password" placeholder="🔒Enter Password" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}" required>
+
+            <input type="password" id="confPass" name="confirmPassword" placeholder="✅ Confirm Password" required>
+
+            <div class="btn">
+                <button type="reset" id="reset">Reset</button>
+                <button type="submit" id="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        const form = document.getElementById("registrationForm");
+        form.addEventListener("submit", (e)=>{
+            const password=document.getElementById("pass").value;
+            const confirmPassword = document.getElementById("confPass").value;
+            if(password !== confirmPassword){
+                e.preventDefault();
+                alert("Password and Confirm Password do not match!..");
+                return;
+            }
+            alert("username and password create successfully..")
+        })
+    </script>
+
+</body>
+</html>
